@@ -17,8 +17,8 @@ import { RescuePlanInteractive } from "~/components/interactives/RescuePlan";
 import { HazardsCheck } from "~/components/interactives/HazardsCheck";
 import { AssemblyPoint } from "~/components/interactives/AssemblyPoint";
 
-export const Route = createFileRoute("/kurs/$id")({
-  head: ({ params }) => {
+export const Route = createFileRoute("/kurs/$id")({  
+  head: ({ params }: { params: { id: string } }) => {
     const t = TOPICS.find((x) => x.id === params.id);
     const title = t ? `${t.title} — SafeWork` : "Kurs — SafeWork";
     const description = t?.short ?? "Materiał szkoleniowy BHP";
