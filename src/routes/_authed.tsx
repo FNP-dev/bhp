@@ -21,7 +21,7 @@ export const loginFn = createServerFn({ method: 'POST' })
   })
 
 export const Route = createFileRoute('/_authed')({
-  beforeLoad: ({ context }) => {
+  beforeLoad: ({ context }: { context: { queryClient: unknown; user?: unknown } }) => {
     if (!context.user) {
       throw new Error('Not authenticated')
     }
